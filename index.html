@@ -1,254 +1,467 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Precious Alkhafissa CAMARA | Portfolio Professionnel</title>
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
 
     <style>
-        :root {
-            --bg-dark: #050d07;
-            --glass-bg: rgba(15, 36, 22, 0.6);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --accent-green: #28a745;
-            --accent-gold: #ffc107;
-        }
+      :root {
+        --bg-dark: #050d07;
+        --glass-bg: rgba(15, 36, 22, 0.6);
+        --glass-border: rgba(255, 255, 255, 0.1);
+        --accent-green: #28a745;
+        --accent-gold: #ffc107;
+      }
 
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg-dark); color: #e9ecef; overflow-x: hidden; line-height: 1.6; }
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: var(--bg-dark);
+        color: #e9ecef;
+        overflow-x: hidden;
+        line-height: 1.6;
+      }
 
-        /* === SPLASH SCREEN === */
-        #splash-screen {
-            position: fixed; inset: 0; background-color: var(--bg-dark); z-index: 9999;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            transition: opacity 0.8s ease, visibility 0.8s;
+      /* === SPLASH SCREEN === */
+      #splash-screen {
+        position: fixed;
+        inset: 0;
+        background-color: var(--bg-dark);
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition:
+          opacity 0.8s ease,
+          visibility 0.8s;
+      }
+      .rings-container {
+        position: relative;
+        width: 120px;
+        height: 120px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .splash-ring {
+        position: absolute;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        border-top-color: var(--accent-green);
+        animation: spin 1s linear infinite;
+      }
+      .ring-1 {
+        width: 80px;
+        height: 80px;
+      }
+      .ring-2 {
+        width: 100px;
+        height: 100px;
+        border-top-color: var(--accent-gold);
+        animation-duration: 1.5s;
+        animation-direction: reverse;
+      }
+      @keyframes spin {
+        100% {
+          transform: rotate(360deg);
         }
-        .rings-container { position: relative; width: 120px; height: 120px; display: flex; justify-content: center; align-items: center; }
-        .splash-ring {
-            position: absolute; border-radius: 50%; border: 3px solid transparent; 
-            border-top-color: var(--accent-green); animation: spin 1s linear infinite;
-        }
-        .ring-1 { width: 80px; height: 80px; }
-        .ring-2 { width: 100px; height: 100px; border-top-color: var(--accent-gold); animation-duration: 1.5s; animation-direction: reverse; }
-        @keyframes spin { 100% { transform: rotate(360deg); } }
+      }
 
-        /* === ANIMATIONS & GLASS === */
-        .glass-panel {
-            background: var(--glass-bg) !important; backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px); border: 1px solid var(--glass-border);
-            border-radius: 20px;
-        }
-        
-        .fade-up { opacity: 0; transform: translateY(30px); animation: fadeUp 0.8s ease-out forwards; }
-        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
+      /* === ANIMATIONS & GLASS === */
+      .glass-panel {
+        background: var(--glass-bg) !important;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid var(--glass-border);
+        border-radius: 20px;
+      }
 
-        /* === SECTIONS === */
-        .hero { padding: 100px 0 60px; position: relative; }
-        .section-title-line { border-bottom: 3px solid var(--accent-gold); width: 60px; margin-bottom: 25px; }
-        
-        .card-project { transition: all 0.3s ease; border: none; height: 100%; }
-        .card-project:hover { transform: translateY(-10px); border-color: var(--accent-green) !important; }
-        
-        .badge-tech { 
-            background: rgba(40,167,69,0.1); color: var(--accent-green); 
-            border: 1px solid rgba(40,167,69,0.3); padding: 4px 12px; 
-            border-radius: 15px; font-size: 0.85rem; margin: 3px; display: inline-block;
+      .fade-up {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeUp 0.8s ease-out forwards;
+      }
+      @keyframes fadeUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
+      }
+      .delay-1 {
+        animation-delay: 0.2s;
+      }
+      .delay-2 {
+        animation-delay: 0.4s;
+      }
 
-        .list-custom { list-style: none; padding-left: 0; }
-        .list-custom li { position: relative; padding-left: 25px; margin-bottom: 10px; }
-        .list-custom li::before { 
-            content: "\f00c"; font-family: "Font Awesome 5 Free"; font-weight: 900;
-            position: absolute; left: 0; color: var(--accent-green); 
-        }
+      /* === SECTIONS === */
+      .hero {
+        padding: 100px 0 60px;
+        position: relative;
+      }
+      .section-title-line {
+        border-bottom: 3px solid var(--accent-gold);
+        width: 60px;
+        margin-bottom: 25px;
+      }
 
-        footer { background: #020603; border-top: 1px solid var(--glass-border); }
+      .card-project {
+        transition: all 0.3s ease;
+        border: none;
+        height: 100%;
+      }
+      .card-project:hover {
+        transform: translateY(-10px);
+        border-color: var(--accent-green) !important;
+      }
 
-        /* === FIGURES GÉOMÉTRIQUES ANIMÉES EN FOND === */
-        .geometric-bg {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            overflow: hidden;
-            z-index: -1; /* Place les formes derrière tout le reste */
-            pointer-events: none; /* Empêche les formes de bloquer les clics de souris */
-        }
-        
-        .shape {
-            position: absolute;
-            background: rgba(40, 167, 69, 0.05); /* Vert très transparent */
-            border: 1px solid rgba(40, 167, 69, 0.15); /* Bordure verte fine */
-            bottom: -150px;
-            animation: floatShape linear infinite;
-        }
+      .badge-tech {
+        background: rgba(40, 167, 69, 0.1);
+        color: var(--accent-green);
+        border: 1px solid rgba(40, 167, 69, 0.3);
+        padding: 4px 12px;
+        border-radius: 15px;
+        font-size: 0.85rem;
+        margin: 3px;
+        display: inline-block;
+      }
 
-        /* Personnalisation de chaque figure (taille, position, durée, forme) */
-        .shape-1 { width: 80px; height: 80px; left: 10%; animation-duration: 25s; border-radius: 15px; }
-        .shape-2 { width: 150px; height: 150px; left: 25%; animation-duration: 35s; border-radius: 50%; } /* Cercle */
-        .shape-3 { width: 60px; height: 60px; left: 50%; animation-duration: 20s; border-radius: 10px; }
-        .shape-4 { 
-            width: 120px; height: 120px; left: 75%; animation-duration: 40s; 
-            border-radius: 25%; border-color: rgba(255, 193, 7, 0.15); /* Touche de doré */
-            background: rgba(255, 193, 7, 0.03);
-        }
-        .shape-5 { width: 90px; height: 90px; left: 85%; animation-duration: 28s; border-radius: 50%; }
-        .shape-6 { width: 40px; height: 40px; left: 35%; animation-duration: 18s; border-radius: 5px; }
+      .list-custom {
+        list-style: none;
+        padding-left: 0;
+      }
+      .list-custom li {
+        position: relative;
+        padding-left: 25px;
+        margin-bottom: 10px;
+      }
+      .list-custom li::before {
+        content: "\f00c";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        position: absolute;
+        left: 0;
+        color: var(--accent-green);
+      }
 
-        /* L'animation : les formes montent, tournent sur elles-mêmes, et disparaissent */
-        @keyframes floatShape {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-110vh) rotate(360deg);
-                opacity: 0;
-            }
+      footer {
+        background: #020603;
+        border-top: 1px solid var(--glass-border);
+      }
+
+      /* === FIGURES GÉOMÉTRIQUES ANIMÉES EN FOND === */
+      .geometric-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: -1; /* Place les formes derrière tout le reste */
+        pointer-events: none; /* Empêche les formes de bloquer les clics de souris */
+      }
+
+      .shape {
+        position: absolute;
+        background: rgba(40, 167, 69, 0.05); /* Vert très transparent */
+        border: 1px solid rgba(40, 167, 69, 0.15); /* Bordure verte fine */
+        bottom: -150px;
+        animation: floatShape linear infinite;
+      }
+
+      /* Personnalisation de chaque figure (taille, position, durée, forme) */
+      .shape-1 {
+        width: 80px;
+        height: 80px;
+        left: 10%;
+        animation-duration: 25s;
+        border-radius: 15px;
+      }
+      .shape-2 {
+        width: 150px;
+        height: 150px;
+        left: 25%;
+        animation-duration: 35s;
+        border-radius: 50%;
+      } /* Cercle */
+      .shape-3 {
+        width: 60px;
+        height: 60px;
+        left: 50%;
+        animation-duration: 20s;
+        border-radius: 10px;
+      }
+      .shape-4 {
+        width: 120px;
+        height: 120px;
+        left: 75%;
+        animation-duration: 40s;
+        border-radius: 25%;
+        border-color: rgba(255, 193, 7, 0.15); /* Touche de doré */
+        background: rgba(255, 193, 7, 0.03);
+      }
+      .shape-5 {
+        width: 90px;
+        height: 90px;
+        left: 85%;
+        animation-duration: 28s;
+        border-radius: 50%;
+      }
+      .shape-6 {
+        width: 40px;
+        height: 40px;
+        left: 35%;
+        animation-duration: 18s;
+        border-radius: 5px;
+      }
+
+      /* L'animation : les formes montent, tournent sur elles-mêmes, et disparaissent */
+      @keyframes floatShape {
+        0% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 1;
         }
+        100% {
+          transform: translateY(-110vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <div class="geometric-bg">
-        <div class="shape shape-1"></div>
-        <div class="shape shape-2"></div>
-        <div class="shape shape-3"></div>
-        <div class="shape shape-4"></div>
-        <div class="shape shape-5"></div>
-        <div class="shape shape-6"></div>
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+      <div class="shape shape-4"></div>
+      <div class="shape shape-5"></div>
+      <div class="shape shape-6"></div>
     </div>
 
     <div id="splash-screen">
-        <div class="rings-container">
-            <div class="splash-ring ring-1"></div>
-            <div class="splash-ring ring-2"></div>
-            <i class="fas fa-shield-halved fs-2 text-white position-absolute"></i>
-        </div>
-        <h5 class="text-white mt-4 fw-bold tracking-widest">CHARGEMENT DU PROFIL...</h5>
+      <div class="rings-container">
+        <div class="splash-ring ring-1"></div>
+        <div class="splash-ring ring-2"></div>
+        <i class="fas fa-shield-halved fs-2 text-white position-absolute"></i>
+      </div>
+      <h5 class="text-white mt-4 fw-bold tracking-widest">
+        CHARGEMENT DU PROFIL...
+      </h5>
     </div>
 
     <header class="hero text-center">
-        <div class="container fade-up">
-            <div class="mb-4">
-                <span class="badge bg-success px-3 py-2 rounded-pill mb-3">Disponible pour de nouveaux défis</span>
-            </div>
-            <h1 class="display-3 fw-bold text-white mb-2">Precious Alkhafissa CAMARA</h1>
-            <h2 class="h3 text-warning mb-4">ADMINISTRATEUR RÉSEAUX & SUPPORT IT</h2>
-            <p class="lead mx-auto opacity-75" style="max-width: 800px;">
-                Expert en infrastructures réseau et passionné par l'automatisation intelligente. 
-                Je combine rigueur technique et innovation logicielle pour optimiser les performances IT.
-            </p>
+      <div class="container fade-up">
+        <div class="mb-4">
+          <span class="badge bg-success px-3 py-2 rounded-pill mb-3"
+            >Disponible pour de nouveaux défis</span
+          >
         </div>
+        <h1 class="display-3 fw-bold text-white mb-2">
+          Precious Alkhafissa CAMARA
+        </h1>
+        <h2 class="h3 text-warning mb-4">
+          ADMINISTRATEUR RÉSEAUX & SUPPORT IT
+        </h2>
+        <p class="lead mx-auto opacity-75" style="max-width: 800px">
+          Expert en infrastructures réseau et passionné par l'automatisation
+          intelligente. Je combine rigueur technique et innovation logicielle
+          pour optimiser les performances IT.
+        </p>
+      </div>
     </header>
 
     <div class="container pb-5">
-        <div class="row g-4">
-            <div class="col-lg-12 fade-up delay-1">
-                <div class="glass-panel p-5">
-                    <h3 class="text-white fw-bold"><i class="fas fa-user-circle me-3 text-success"></i>Profil Professionnel</h3>
-                    <div class="section-title-line"></div>
-                    <p class="fs-5">
-                        Étudiant en <strong>Multimédia Internet Telecom</strong>, j'ai développé une double compétence unique en 
-                        <strong>Administration Système/Réseaux</strong> et en <strong>Développement Web (Python)</strong>. 
-                        Fort d'une expérience concrète à la <strong>Senelec</strong> sur la migration de parcs et le support utilisateur, 
-                        je conçois également des solutions d'automatisation avancées (Intranets et IA).
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-md-6 fade-up delay-2">
-                <div class="glass-panel p-4 h-100">
-                    <h4 class="text-white fw-bold mb-4"><i class="fas fa-microchip me-2 text-warning"></i>Expertise Technique</h4>
-                    <div class="mb-4">
-                        <h6 class="text-success fw-bold">Réseaux & Systèmes</h6>
-                        <p class="small opacity-75">Configuration Cisco (VLANs), Windows Server, Linux (Bash), Virtualisation.</p>
-                    </div>
-                    <div class="mb-4">
-                        <h6 class="text-success fw-bold">Développement & IA</h6>
-                        <p class="small opacity-75">Python (Flask, SQLAlchemy), Intégration LLM, RAG, ChromaDB, HTML5/CSS3.</p>
-                    </div>
-                    <div>
-                        <h6 class="text-success fw-bold">Support & Maintenance</h6>
-                        <p class="small opacity-75">Helpdesk N1/N2, Ticketing, Maintenance Hardware, Formation utilisateurs.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 fade-up delay-2">
-                <div class="glass-panel p-4 h-100">
-                    <h4 class="text-white fw-bold mb-4"><i class="fas fa-briefcase me-2 text-warning"></i>Expérience à la Senelec</h4>
-                    <ul class="list-custom small opacity-75">
-                        <li><strong>Migration de Parc :</strong> Déploiement de 500 postes vers un nouvel environnement sans interruption critique.</li>
-                        <li><strong>Administration :</strong> Surveillance du trafic et maintenance des équipements d'interconnexion.</li>
-                        <li><strong>Support :</strong> Résolution d'incidents complexes pour le personnel du siège.</li>
-                        <li><strong>Formation :</strong> Accompagnement de 20 collaborateurs aux outils numériques.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="col-12 mt-4 fade-up">
-                <h3 class="text-white fw-bold text-center mb-4">Réalisations Phares</h3>
-                <div class="row g-4">
-                    <div class="col-lg-4">
-                        <div class="card-project glass-panel p-4">
-                            <div class="text-success fs-1 mb-3"><i class="fas fa-brain"></i></div>
-                            <h5 class="text-white fw-bold">Smart-Tender AI</h5>
-                            <p class="small opacity-75">Système d'IA pour l'analyse des appels d'offres utilisant le RAG et ChromaDB.</p>
-                            <div class="mt-3">
-                                <span class="badge-tech">Python</span><span class="badge-tech">IA (RAG)</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="card-project glass-panel p-4">
-                            <div class="text-success fs-1 mb-3"><i class="fas fa-laptop-code"></i></div>
-                            <h5 class="text-white fw-bold">XALAT (MCAT)</h5>
-                            <p class="small opacity-75">Intranet de gestion des marchés publics avec génération de PDF (FPDF).</p>
-                            <div class="mt-3">
-                                <span class="badge-tech">Flask</span><span class="badge-tech">SQLite</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="card-project glass-panel p-4">
-                            <div class="text-success fs-1 mb-3"><i class="fas fa-graduation-cap"></i></div>
-                            <h5 class="text-white fw-bold">Licence MIC</h5>
-                            <p class="small opacity-75">Spécialisation Télécoms et Médias Numériques à l'UNCHK.</p>
-                            <div class="mt-3">
-                                <span class="badge-tech">UNCHK</span><span class="badge-tech">Telecoms</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="row g-4">
+        <div class="col-lg-12 fade-up delay-1">
+          <div class="glass-panel p-5">
+            <h3 class="text-white fw-bold">
+              <i class="fas fa-user-circle me-3 text-success"></i>Profil
+              Professionnel
+            </h3>
+            <div class="section-title-line"></div>
+            <p class="fs-5">
+              Étudiant en <strong>Multimédia Internet Telecom</strong>, j'ai
+              développé une double compétence unique en
+              <strong>Administration Système/Réseaux</strong> et en
+              <strong>Développement Web (Python)</strong>. Fort d'une expérience
+              concrète à la <strong>Senelec</strong> sur la migration de parcs
+              et le support utilisateur, je conçois également des solutions
+              d'automatisation avancées (Intranets et IA).
+            </p>
+          </div>
         </div>
+
+        <div class="col-md-6 fade-up delay-2">
+          <div class="glass-panel p-4 h-100">
+            <h4 class="text-white fw-bold mb-4">
+              <i class="fas fa-microchip me-2 text-warning"></i>Expertise
+              Technique
+            </h4>
+            <div class="mb-4">
+              <h6 class="text-success fw-bold">Réseaux & Systèmes</h6>
+              <p class="small opacity-75">
+                Configuration Cisco (VLANs), Windows Server, Linux (Bash),
+                Virtualisation.
+              </p>
+            </div>
+            <div class="mb-4">
+              <h6 class="text-success fw-bold">Développement & IA</h6>
+              <p class="small opacity-75">
+                Python (Flask, SQLAlchemy), Intégration LLM, RAG, ChromaDB,
+                HTML5/CSS3.
+              </p>
+            </div>
+            <div>
+              <h6 class="text-success fw-bold">Support & Maintenance</h6>
+              <p class="small opacity-75">
+                Helpdesk N1/N2, Ticketing, Maintenance Hardware, Formation
+                utilisateurs.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 fade-up delay-2">
+          <div class="glass-panel p-4 h-100">
+            <h4 class="text-white fw-bold mb-4">
+              <i class="fas fa-briefcase me-2 text-warning"></i>Expérience à la
+              Senelec
+            </h4>
+            <ul class="list-custom small opacity-75">
+              <li>
+                <strong>Migration de Parc :</strong> Déploiement de 500 postes
+                vers un nouvel environnement sans interruption critique.
+              </li>
+              <li>
+                <strong>Administration :</strong> Surveillance du trafic et
+                maintenance des équipements d'interconnexion.
+              </li>
+              <li>
+                <strong>Support :</strong> Résolution d'incidents complexes pour
+                le personnel du siège.
+              </li>
+              <li>
+                <strong>Formation :</strong> Accompagnement de 20 collaborateurs
+                aux outils numériques.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12 mt-4 fade-up">
+          <h3 class="text-white fw-bold text-center mb-4">
+            Réalisations Phares
+          </h3>
+          <div class="row g-4">
+            <div class="col-lg-4">
+              <div class="card-project glass-panel p-4">
+                <div class="text-success fs-1 mb-3">
+                  <i class="fas fa-brain"></i>
+                </div>
+                <h5 class="text-white fw-bold">Smart-Tender AI</h5>
+                <p class="small opacity-75">
+                  Système d'IA pour l'analyse des appels d'offres utilisant le
+                  RAG et ChromaDB.
+                </p>
+                <div class="mt-3">
+                  <span class="badge-tech">Python</span
+                  ><span class="badge-tech">IA (RAG)</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="card-project glass-panel p-4">
+                <div class="text-success fs-1 mb-3">
+                  <i class="fas fa-laptop-code"></i>
+                </div>
+                <h5 class="text-white fw-bold">XALAT (MCAT)</h5>
+                <p class="small opacity-75">
+                  Intranet de gestion des marchés publics avec génération de PDF
+                  (FPDF).
+                </p>
+                <div class="mt-3">
+                  <span class="badge-tech">Flask</span
+                  ><span class="badge-tech">SQLite</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="card-project glass-panel p-4">
+                <div class="text-success fs-1 mb-3">
+                  <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h5 class="text-white fw-bold">Licence MIC</h5>
+                <p class="small opacity-75">
+                  Spécialisation Télécoms et Médias Numériques à l'UNCHK.
+                </p>
+                <div class="mt-3">
+                  <span class="badge-tech">UNCHK</span
+                  ><span class="badge-tech">Telecoms</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <footer class="py-5 text-center mt-5">
-        <div class="container">
-            <h4 class="text-white fw-bold mb-4">Prêt à collaborer ?</h4>
-            <div class="d-flex justify-content-center gap-4 mb-4">
-                <a href="mailto:Alkhafissa98@gmail.com" class="text-success fs-3"><i class="fas fa-envelope"></i></a>
-                <a href="tel:+221768135432" class="text-success fs-3"><i class="fas fa-phone"></i></a>
-                <a href="https://github.com/AlkhafissA" class="text-white fs-3"><i class="fab fa-github"></i></a>
-            </div>
-            <p class="text-muted small">&copy; 2026 Precious Alkhafissa CAMARA - Dakar, Sénégal</p>
+      <div class="container">
+        <h4 class="text-white fw-bold mb-4">Prêt à collaborer ?</h4>
+        <div class="d-flex justify-content-center gap-4 mb-4">
+          <a href="mailto:Alkhafissa98@gmail.com" class="text-success fs-3"
+            ><i class="fas fa-envelope"></i
+          ></a>
+          <a href="tel:+221768135432" class="text-success fs-3"
+            ><i class="fas fa-phone"></i
+          ></a>
+          <a href="https://github.com/AlkhafissA" class="text-white fs-3"
+            ><i class="fab fa-github"></i
+          ></a>
         </div>
+        <p class="text-muted small">
+          &copy; 2026 Precious Alkhafissa CAMARA - Dakar, Sénégal
+        </p>
+      </div>
     </footer>
 
     <script>
-        // Disparition du Splash Screen
-        window.addEventListener('load', () => {
+      // Disparition du Splash Screen de manière sécurisée
+      document.addEventListener("DOMContentLoaded", () => {
+        // On lance le compte à rebours de 1.2 seconde dès la lecture de la page
+        setTimeout(() => {
+          const splash = document.getElementById("splash-screen");
+          if (splash) {
+            splash.style.opacity = "0"; // Fondu transparent
             setTimeout(() => {
-                const splash = document.getElementById('splash-screen');
-                splash.style.opacity = '0';
-                setTimeout(() => splash.style.visibility = 'hidden', 800);
-            }, 1200);
-        });
+              splash.style.visibility = "hidden"; // On le cache totalement
+            }, 800);
+          }
+        }, 1200);
+      });
+
+      // Sécurité supplémentaire : forcer la disparition après 4 secondes au cas où
+      setTimeout(() => {
+        const splash = document.getElementById("splash-screen");
+        if (splash && splash.style.visibility !== "hidden") {
+          splash.style.opacity = "0";
+          splash.style.visibility = "hidden";
+        }
+      }, 4000);
     </script>
-</body>
+  </body>
 </html>
