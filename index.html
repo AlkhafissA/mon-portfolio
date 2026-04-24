@@ -82,7 +82,6 @@
       }
 
       /* === ANIMATIONS & GLASS === */
-      /* === ANIMATIONS & GLASS === */
       .glass-panel {
         background: var(--glass-bg) !important;
         backdrop-filter: blur(20px);
@@ -93,13 +92,15 @@
         transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
       }
 
-      /* L'effet de survol pour faire bouger les 3 premiers blocs */
+     /* L'effet de survol : soulèvement + lueur verte */
       .glass-panel:hover {
-        transform: translateY(-8px); /* Fait monter le bloc de 8 pixels */
-        border-color: rgba(40, 167, 69, 0.5); /* La bordure s'illumine en vert */
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Ajoute une ombre pour l'effet 3D */
+        transform: translateY(-8px);
+        border-color: rgba(40, 167, 69, 0.8) !important;
+        /* On combine une ombre noire pour la 3D et une large lueur verte diffuse */
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 50px rgba(40, 167, 69, 0.4) !important;
+        z-index: 10; /* S'assure que la lueur passe par-dessus les autres éléments */
       }
-      
+
       .fade-up {
         opacity: 0;
         transform: translateY(30px);
@@ -488,18 +489,31 @@
                 }
             },
             "interactivity": {
-                "detect_on": "canvas",
+                /* "window" est crucial : permet de détecter la souris même si le fond est derrière vos blocs */
+                "detect_on": "window", 
                 "events": {
                     "onhover": {
-                        "enable": false /* Désactivé car on a mis pointer-events: none en CSS */
+                        "enable": true,
+                        "mode": "grab" /* "grab" force les points proches à se connecter à la souris */
                     },
                     "onclick": {
-                        "enable": false
+                        "enable": true,
+                        "mode": "push" /* Bonus : ajoute des points si on clique */
                     },
                     "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 250, /* Distance à laquelle les points sont attirés */
+                        "line_linked": {
+                            "opacity": 0.8 /* Rend les lignes de connexion plus intenses vers le bloc */
+                        }
+                    },
+                    "push": {
+                        "particles_nb": 3
+                    }
                 }
-            },
-            "retina_detect": true
+            }
         });
     </script>
 
