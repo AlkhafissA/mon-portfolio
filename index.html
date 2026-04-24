@@ -7,19 +7,103 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        body { font-family: 'Inter', sans-serif; color: #333; }
-        .hero { background: linear-gradient(135deg, #0d6efd 0%, #003d99 100%); color: white; padding: 100px 0; }
-        .card { border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s; }
-        .card:hover { transform: translateY(-5px); }
-        .badge-tech { background-color: #e9ecef; color: #0d6efd; font-weight: bold; margin-right: 5px; margin-bottom: 5px; display: inline-block;}
-        .section-title { border-bottom: 3px solid #0d6efd; width: 60px; margin-bottom: 30px; }
-        .project-img { height: 180px; background-color: #f8f9fa; display: flex; align-items: center; justify-content: center; color: #dee2e6; font-size: 3.5rem; border-bottom: 1px solid #eee; }
+        /* === VARIABLES & BASE === */
+        :root {
+            --primary-glow: rgba(13, 110, 253, 0.6);
+            --secondary-glow: rgba(0, 212, 255, 0.4);
+        }
+        body { font-family: 'Inter', sans-serif; color: #333; overflow-x: hidden; }
+
+        /* === 1 & 2. GLOwS & BREATHE ANIMATION (Hero Section) === */
+        .hero { 
+            position: relative;
+            background-color: #0f172a; /* Fond sombre profond */
+            color: white; 
+            padding: 120px 0;
+            overflow: hidden;
+            z-index: 1;
+        }
+        /* Les taches de couleur (Gradients radiaux) */
+        .hero::before, .hero::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px); /* Flou extrême pour faire une lueur */
+            z-index: -1;
+            animation: breathe 8s ease-in-out infinite alternate;
+        }
+        .hero::before {
+            background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+            width: 600px; height: 600px;
+            top: -150px; left: -100px;
+        }
+        .hero::after {
+            background: radial-gradient(circle, var(--secondary-glow) 0%, transparent 70%);
+            width: 500px; height: 500px;
+            bottom: -100px; right: -50px;
+            animation-delay: -4s; /* Désynchroniser les deux lueurs */
+        }
+        @keyframes breathe {
+            0% { transform: scale(0.8) translate(0, 0); opacity: 0.6; }
+            100% { transform: scale(1.2) translate(30px, -30px); opacity: 1; }
+        }
+
+        /* === 3. GLASSMORPHISM (Navbar) === */
+        .glass-navbar {
+            background: rgba(15, 23, 42, 0.8) !important; /* Couleur sombre transparente */
+            backdrop-filter: blur(12px); /* Effet de verre dépoli */
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* === 4. BALAYAGE LUMINEUX (Shine Button) === */
+        .btn-shine {
+            position: relative;
+            overflow: hidden;
+            border: none;
+        }
+        .btn-shine::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 50%; height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+            transform: skewX(-20deg);
+            animation: shine 3s infinite;
+        }
+        @keyframes shine {
+            0% { left: -100%; }
+            20% { left: 200%; }
+            100% { left: 200%; }
+        }
+
+        /* === 5. KEYFRAMES FADE-UP (Apparition au scroll/chargement) === */
+        .fade-up {
+            opacity: 0;
+            animation: fadeUp 1s ease-out forwards;
+        }
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Styles de base restants */
+        .card { border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: transform 0.3s, box-shadow 0.3s; border-radius: 15px;}
+        .card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
+        .badge-tech { background-color: #e2e8f0; color: #0d6efd; font-weight: 600; margin-right: 5px; margin-bottom: 5px; display: inline-block; padding: 5px 10px; border-radius: 20px;}
+        .section-title { border-bottom: 4px solid #0d6efd; width: 60px; margin-bottom: 30px; border-radius: 2px;}
+        .project-img { height: 180px; background-color: #f8fafc; display: flex; align-items: center; justify-content: center; color: #cbd5e1; font-size: 3.5rem; border-top-left-radius: 15px; border-top-right-radius: 15px;}
     </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark glass-navbar sticky-top">
         <div class="container">
             <a class="navbar-brand fw-bold" href="#">PAC.</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -37,18 +121,18 @@
     </nav>
 
     <header class="hero text-center">
-        <div class="container">
-            <h1 class="display-3 fw-bold">Precious Alkhafissa CAMARA</h1>
-            <p class="lead mb-4">Administrateur Réseaux & Développeur Full-Stack Python</p>
+        <div class="container fade-up">
+            <h1 class="display-3 fw-bold mb-3">Precious Alkhafissa CAMARA</h1>
+            <p class="lead mb-5 text-light opacity-75">Administrateur Réseaux & Développeur Full-Stack / IA</p>
             <div class="d-flex justify-content-center gap-3">
-                <a href="#projets" class="btn btn-light btn-lg px-4">Voir mes projets</a>
-                <a href="#contact" class="btn btn-outline-light btn-lg px-4">Me contacter</a>
+                <a href="#projets" class="btn btn-primary btn-lg px-4 btn-shine rounded-pill">Voir mes projets</a>
+                <a href="#contact" class="btn btn-outline-light btn-lg px-4 rounded-pill">Me contacter</a>
             </div>
         </div>
     </header>
 
     <section id="a-propos" class="py-5">
-        <div class="container">
+        <div class="container fade-up delay-1">
             <h2 class="fw-bold">À propos</h2>
             <div class="section-title"></div>
             <p class="lead">
@@ -60,28 +144,28 @@
 
     <section id="competences" class="py-5 bg-light">
         <div class="container">
-            <h2 class="fw-bold text-center">Compétences Techniques</h2>
-            <div class="section-title mx-auto"></div>
+            <h2 class="fw-bold text-center fade-up">Compétences Techniques</h2>
+            <div class="section-title mx-auto fade-up"></div>
             <div class="row g-4 mt-2">
-                <div class="col-md-4">
-                    <div class="p-4 bg-white rounded shadow-sm text-center h-100">
+                <div class="col-md-4 fade-up delay-1">
+                    <div class="p-4 bg-white rounded-4 shadow-sm text-center h-100 card">
                         <i class="fas fa-network-wired fa-3x text-primary mb-3"></i>
-                        <h4>Réseaux & Système</h4>
-                        <p>Cisco (VLANs), Windows Server, Administration Linux (Bash), Virtualisation.</p>
+                        <h4 class="fw-bold">Réseaux & Système</h4>
+                        <p class="text-muted">Cisco (VLANs), Windows Server, Administration Linux (Bash), Virtualisation.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="p-4 bg-white rounded shadow-sm text-center h-100">
+                <div class="col-md-4 fade-up delay-2">
+                    <div class="p-4 bg-white rounded-4 shadow-sm text-center h-100 card">
                         <i class="fab fa-python fa-3x text-primary mb-3"></i>
-                        <h4>Développement & IA</h4>
-                        <p>Python (Flask, SQLAlchemy), Intégration LLM (RAG, Groq), PHP, JavaScript.</p>
+                        <h4 class="fw-bold">Développement & IA</h4>
+                        <p class="text-muted">Python (Flask, SQLAlchemy), Intégration LLM (RAG, Groq), PHP, JavaScript.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="p-4 bg-white rounded shadow-sm text-center h-100">
+                <div class="col-md-4 fade-up delay-3">
+                    <div class="p-4 bg-white rounded-4 shadow-sm text-center h-100 card">
                         <i class="fas fa-server fa-3x text-primary mb-3"></i>
-                        <h4>DevOps & Data</h4>
-                        <p>Docker, PostgreSQL/MySQL, ChromaDB (Vectoriel), Git, Déploiement Cloud.</p>
+                        <h4 class="fw-bold">DevOps & Data</h4>
+                        <p class="text-muted">Docker, PostgreSQL/MySQL, ChromaDB (Vectoriel), Git, Déploiement Cloud.</p>
                     </div>
                 </div>
             </div>
@@ -90,62 +174,62 @@
 
     <section id="projets" class="py-5">
         <div class="container">
-            <h2 class="fw-bold">Projets Majeurs</h2>
-            <div class="section-title"></div>
+            <h2 class="fw-bold fade-up">Projets Majeurs</h2>
+            <div class="section-title fade-up"></div>
             <div class="row g-4">
                 
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-4 col-md-6 fade-up delay-1">
                     <div class="card h-100 border-primary" style="border-width: 2px;">
                         <div class="project-img text-primary"><i class="fas fa-brain"></i></div>
-                        <div class="card-body d-flex flex-column">
+                        <div class="card-body d-flex flex-column p-4">
                             <h5 class="card-title fw-bold">Smart-Tender AI</h5>
                             <p class="card-text text-muted">Application d'Intelligence Artificielle pour l'analyse automatisée des appels d'offres.</p>
-                            <ul class="small mb-4">
-                                <li><strong>Action :</strong> Implémentation d'un système RAG avec ChromaDB pour interroger des PDF complexes via IA.</li>
-                                <li><strong>Impact :</strong> Extraction intelligente de données et génération de rapports Excel structurés.</li>
+                            <ul class="small mb-4 text-muted">
+                                <li><strong>Action :</strong> Système RAG avec ChromaDB pour interroger des PDF via IA.</li>
+                                <li><strong>Impact :</strong> Extraction intelligente et rapports Excel structurés.</li>
                             </ul>
                             <div class="mt-auto">
-                                <span class="badge badge-tech">Python/Flask</span>
-                                <span class="badge badge-tech">IA (RAG/Groq)</span>
-                                <span class="badge badge-tech">Docker</span>
+                                <span class="badge-tech">Python/Flask</span>
+                                <span class="badge-tech">IA (RAG)</span>
+                                <span class="badge-tech">Docker</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-4 col-md-6 fade-up delay-2">
                     <div class="card h-100">
                         <div class="project-img"><i class="fas fa-file-invoice"></i></div>
-                        <div class="card-body d-flex flex-column">
+                        <div class="card-body d-flex flex-column p-4">
                             <h5 class="card-title fw-bold">XALAT (MCAT)</h5>
                             <p class="card-text text-muted">Plateforme d'entreprise sécurisée pour la gestion administrative des marchés publics.</p>
-                            <ul class="small mb-4">
-                                <li><strong>Action :</strong> Architecture de 13 modèles DB, sécurité anti-bruteforce et gestion multi-rôles.</li>
-                                <li><strong>Impact :</strong> Automatisation de la génération de PDF officiels et traçabilité métier à 100%.</li>
+                            <ul class="small mb-4 text-muted">
+                                <li><strong>Action :</strong> Architecture 13 modèles DB et sécurité anti-bruteforce.</li>
+                                <li><strong>Impact :</strong> Génération de PDF officiels et traçabilité métier à 100%.</li>
                             </ul>
                             <div class="mt-auto">
-                                <span class="badge badge-tech">Python/Flask</span>
-                                <span class="badge badge-tech">PostgreSQL</span>
-                                <span class="badge badge-tech">Sécurité</span>
+                                <span class="badge-tech">Python/Flask</span>
+                                <span class="badge-tech">PostgreSQL</span>
+                                <span class="badge-tech">Sécurité</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-4 col-md-6 fade-up delay-3">
                     <div class="card h-100">
                         <div class="project-img"><i class="fas fa-shopping-basket"></i></div>
-                        <div class="card-body d-flex flex-column">
+                        <div class="card-body d-flex flex-column p-4">
                             <h5 class="card-title fw-bold">GUETTE-GUI</h5>
                             <p class="card-text text-muted">Marketplace Agricole B2C spécialisée dans la vente de bétail et volaille au Sénégal.</p>
-                            <ul class="small mb-4">
-                                <li><strong>Action :</strong> Développement du front-end avec un panier dynamique géré via LocalStorage.</li>
-                                <li><strong>Fonction :</strong> Gestion du catalogue produits, authentification clients et tunnel de commande complet.</li>
+                            <ul class="small mb-4 text-muted">
+                                <li><strong>Action :</strong> Développement front-end avec panier dynamique via LocalStorage.</li>
+                                <li><strong>Fonction :</strong> Gestion du catalogue et tunnel de commande complet.</li>
                             </ul>
                             <div class="mt-auto">
-                                <span class="badge badge-tech">PHP/MySQL</span>
-                                <span class="badge badge-tech">JavaScript</span>
-                                <span class="badge badge-tech">Bootstrap</span>
+                                <span class="badge-tech">PHP/MySQL</span>
+                                <span class="badge-tech">JavaScript</span>
+                                <span class="badge-tech">Bootstrap</span>
                             </div>
                         </div>
                     </div>
@@ -156,15 +240,15 @@
     </section>
 
     <footer id="contact" class="py-5 bg-dark text-white">
-        <div class="container text-center">
+        <div class="container text-center fade-up">
             <h2 class="fw-bold mb-4">Contactons-nous</h2>
-            <p>Disponible pour de nouveaux défis en Administration Réseaux ou Développement Python/IA.</p>
+            <p class="opacity-75">Disponible pour de nouveaux défis en Administration Réseaux ou Développement Python/IA.</p>
             <div class="d-flex justify-content-center gap-4 my-4">
-                <a href="mailto:Alkhafissa98@gmail.com" class="text-white fs-3"><i class="fas fa-envelope"></i></a>
-                <a href="tel:+221768135432" class="text-white fs-3"><i class="fas fa-phone"></i></a>
-                <a href="#" class="text-white fs-3"><i class="fab fa-github"></i></a> 
+                <a href="mailto:Alkhafissa98@gmail.com" class="text-white fs-3 hover-opacity"><i class="fas fa-envelope"></i></a>
+                <a href="tel:+221768135432" class="text-white fs-3 hover-opacity"><i class="fas fa-phone"></i></a>
+                <a href="https://github.com/AlkhafissA" class="text-white fs-3 hover-opacity"><i class="fab fa-github"></i></a> 
             </div>
-            <hr class="bg-secondary">
+            <hr class="bg-secondary opacity-25">
             <p class="small text-secondary mb-0">&copy; 2026 Precious Alkhafissa CAMARA. Fait avec passion à Dakar.</p>
         </div>
     </footer>
