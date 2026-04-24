@@ -163,94 +163,20 @@
         border-top: 1px solid var(--glass-border);
       }
 
-      /* === FIGURES GÉOMÉTRIQUES ANIMÉES EN FOND === */
-      .geometric-bg {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        z-index: -1; /* Place les formes derrière tout le reste */
-        pointer-events: none; /* Empêche les formes de bloquer les clics de souris */
-      }
-
-      .shape {
-        position: absolute;
-        background: rgba(40, 167, 69, 0.05); /* Vert très transparent */
-        border: 1px solid rgba(40, 167, 69, 0.15); /* Bordure verte fine */
-        bottom: -150px;
-        animation: floatShape linear infinite;
-      }
-
-      /* Personnalisation de chaque figure (taille, position, durée, forme) */
-      .shape-1 {
-        width: 80px;
-        height: 80px;
-        left: 10%;
-        animation-duration: 25s;
-        border-radius: 15px;
-      }
-      .shape-2 {
-        width: 150px;
-        height: 150px;
-        left: 25%;
-        animation-duration: 35s;
-        border-radius: 50%;
-      } /* Cercle */
-      .shape-3 {
-        width: 60px;
-        height: 60px;
-        left: 50%;
-        animation-duration: 20s;
-        border-radius: 10px;
-      }
-      .shape-4 {
-        width: 120px;
-        height: 120px;
-        left: 75%;
-        animation-duration: 40s;
-        border-radius: 25%;
-        border-color: rgba(255, 193, 7, 0.15); /* Touche de doré */
-        background: rgba(255, 193, 7, 0.03);
-      }
-      .shape-5 {
-        width: 90px;
-        height: 90px;
-        left: 85%;
-        animation-duration: 28s;
-        border-radius: 50%;
-      }
-      .shape-6 {
-        width: 40px;
-        height: 40px;
-        left: 35%;
-        animation-duration: 18s;
-        border-radius: 5px;
-      }
-
-      /* L'animation : les formes montent, tournent sur elles-mêmes, et disparaissent */
-      @keyframes floatShape {
-        0% {
-          transform: translateY(0) rotate(0deg);
-          opacity: 1;
+      /* === FOND RÉSEAU DE PARTICULES === */
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Reste bien derrière votre contenu */
+            pointer-events: none; /* Les clics passent au travers */
         }
-        100% {
-          transform: translateY(-110vh) rotate(360deg);
-          opacity: 0;
-        }
-      }
     </style>
   </head>
   <body>
-    <div class="geometric-bg">
-      <div class="shape shape-1"></div>
-      <div class="shape shape-2"></div>
-      <div class="shape shape-3"></div>
-      <div class="shape shape-4"></div>
-      <div class="shape shape-5"></div>
-      <div class="shape shape-6"></div>
-    </div>
+   <div id="particles-js"></div>
 
     <div id="splash-screen">
       <div class="rings-container">
@@ -480,5 +406,62 @@
         }
       }, 4000);
     </script>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 60, /* Nombre de points à l'écran */
+                    "density": { "enable": true, "value_area": 800 }
+                },
+                "color": {
+                    "value": ["#28a745", "#ffc107", "#ffffff"] /* Vert, Or et un peu de Blanc */
+                },
+                "shape": {
+                    "type": "circle",
+                },
+                "opacity": {
+                    "value": 0.6,
+                    "random": false
+                },
+                "size": {
+                    "value": 3,
+                    "random": true /* Tailles de points variées */
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150, /* Distance maximale pour lier deux points */
+                    "color": "#28a745", /* Lignes vertes */
+                    "opacity": 0.3, /* Lignes un peu transparentes */
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 1.5, /* Vitesse de déplacement lente et fluide */
+                    "direction": "none",
+                    "random": true,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": false /* Désactivé car on a mis pointer-events: none en CSS */
+                    },
+                    "onclick": {
+                        "enable": false
+                    },
+                    "resize": true
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+
   </body>
 </html>
