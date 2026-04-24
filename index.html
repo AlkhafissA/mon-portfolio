@@ -68,6 +68,47 @@
         }
 
         footer { background: #020603; border-top: 1px solid var(--glass-border); }
+
+        /* === FIGURES GÉOMÉTRIQUES ANIMÉES EN FOND === */
+        .geometric-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            overflow: hidden;
+            z-index: -1; /* Place les formes derrière tout le reste */
+            pointer-events: none; /* Empêche les formes de bloquer les clics de souris */
+        }
+        
+        .shape {
+            position: absolute;
+            background: rgba(40, 167, 69, 0.05); /* Vert très transparent */
+            border: 1px solid rgba(40, 167, 69, 0.15); /* Bordure verte fine */
+            bottom: -150px;
+            animation: floatShape linear infinite;
+        }
+
+        /* Personnalisation de chaque figure (taille, position, durée, forme) */
+        .shape-1 { width: 80px; height: 80px; left: 10%; animation-duration: 25s; border-radius: 15px; }
+        .shape-2 { width: 150px; height: 150px; left: 25%; animation-duration: 35s; border-radius: 50%; } /* Cercle */
+        .shape-3 { width: 60px; height: 60px; left: 50%; animation-duration: 20s; border-radius: 10px; }
+        .shape-4 { 
+            width: 120px; height: 120px; left: 75%; animation-duration: 40s; 
+            border-radius: 25%; border-color: rgba(255, 193, 7, 0.15); /* Touche de doré */
+            background: rgba(255, 193, 7, 0.03);
+        }
+        .shape-5 { width: 90px; height: 90px; left: 85%; animation-duration: 28s; border-radius: 50%; }
+        .shape-6 { width: 40px; height: 40px; left: 35%; animation-duration: 18s; border-radius: 5px; }
+
+        /* L'animation : les formes montent, tournent sur elles-mêmes, et disparaissent */
+        @keyframes floatShape {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -208,47 +249,6 @@
                 setTimeout(() => splash.style.visibility = 'hidden', 800);
             }, 1200);
         });
-        
-        /* === FIGURES GÉOMÉTRIQUES ANIMÉES EN FOND === */
-        .geometric-bg {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            overflow: hidden;
-            z-index: -1; /* Place les formes derrière tout le reste */
-            pointer-events: none; /* Empêche les formes de bloquer les clics de souris */
-        }
-        
-        .shape {
-            position: absolute;
-            background: rgba(40, 167, 69, 0.05); /* Vert très transparent */
-            border: 1px solid rgba(40, 167, 69, 0.15); /* Bordure verte fine */
-            bottom: -150px;
-            animation: floatShape linear infinite;
-        }
-
-        /* Personnalisation de chaque figure (taille, position, durée, forme) */
-        .shape-1 { width: 80px; height: 80px; left: 10%; animation-duration: 25s; border-radius: 15px; }
-        .shape-2 { width: 150px; height: 150px; left: 25%; animation-duration: 35s; border-radius: 50%; } /* Cercle */
-        .shape-3 { width: 60px; height: 60px; left: 50%; animation-duration: 20s; border-radius: 10px; }
-        .shape-4 { 
-            width: 120px; height: 120px; left: 75%; animation-duration: 40s; 
-            border-radius: 25%; border-color: rgba(255, 193, 7, 0.15); /* Touche de doré */
-            background: rgba(255, 193, 7, 0.03);
-        }
-        .shape-5 { width: 90px; height: 90px; left: 85%; animation-duration: 28s; border-radius: 50%; }
-        .shape-6 { width: 40px; height: 40px; left: 35%; animation-duration: 18s; border-radius: 5px; }
-
-        /* L'animation : les formes montent, tournent sur elles-mêmes, et disparaissent */
-        @keyframes floatShape {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-110vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
     </script>
 </body>
 </html>
