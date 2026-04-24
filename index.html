@@ -454,33 +454,33 @@
         particlesJS("particles-js", {
             "particles": {
                 "number": {
-                    "value": 60, /* Nombre de points à l'écran */
+                    "value": 35, /* RÉDUIT : Moins de points flottants */
                     "density": { "enable": true, "value_area": 800 }
                 },
                 "color": {
-                    "value": ["#28a745", "#ffc107", "#ffffff"] /* Vert, Or et un peu de Blanc */
+                    "value": ["#28a745", "#ffc107", "#ffffff"]
                 },
                 "shape": {
                     "type": "circle",
                 },
                 "opacity": {
-                    "value": 0.6,
+                    "value": 0.5, /* Points légèrement plus discrets */
                     "random": false
                 },
                 "size": {
                     "value": 3,
-                    "random": true /* Tailles de points variées */
+                    "random": true
                 },
                 "line_linked": {
                     "enable": true,
-                    "distance": 150, /* Distance maximale pour lier deux points */
-                    "color": "#28a745", /* Lignes vertes */
-                    "opacity": 0.3, /* Lignes un peu transparentes */
+                    "distance": 120, /* RÉDUIT : Crée moins de lignes de connexion spontanées */
+                    "color": "#28a745",
+                    "opacity": 0.15, /* RÉDUIT : Lignes beaucoup plus discrètes au repos */
                     "width": 1
                 },
                 "move": {
                     "enable": true,
-                    "speed": 1.5, /* Vitesse de déplacement lente et fluide */
+                    "speed": 1.2, /* Ralenti pour un effet plus apaisant */
                     "direction": "none",
                     "random": true,
                     "straight": false,
@@ -489,31 +489,31 @@
                 }
             },
             "interactivity": {
-                /* "window" est crucial : permet de détecter la souris même si le fond est derrière vos blocs */
-                "detect_on": "window", 
+                "detect_on": "window",
                 "events": {
                     "onhover": {
                         "enable": true,
-                        "mode": "grab" /* "grab" force les points proches à se connecter à la souris */
+                        "mode": "grab" 
                     },
                     "onclick": {
                         "enable": true,
-                        "mode": "push" /* Bonus : ajoute des points si on clique */
+                        "mode": "push" 
                     },
                     "resize": true
                 },
                 "modes": {
                     "grab": {
-                        "distance": 250, /* Distance à laquelle les points sont attirés */
+                        "distance": 200, /* Zone d'attraction de la souris légèrement réduite */
                         "line_linked": {
-                            "opacity": 0.8 /* Rend les lignes de connexion plus intenses vers le bloc */
+                            "opacity": 0.6 /* Les lignes vers la souris restent bien lumineuses ! */
                         }
                     },
                     "push": {
-                        "particles_nb": 3
+                        "particles_nb": 2
                     }
                 }
-            }
+            },
+            "retina_detect": true
         });
     </script>
 
