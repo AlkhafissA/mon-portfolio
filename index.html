@@ -3,27 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Precious Alkhafissa CAMARA | Portfolio Professionnel</title>
-    <meta name="description" content="Portfolio de Precious Alkhafissa CAMARA, Administrateur Réseaux & Support IT. Expert en infrastructures réseau, automatisation Python et intégration IA." />
-    <meta name="keywords" content="Administrateur Réseaux, Support IT, Développeur Python, Portfolio, Senelec, Dakar, IA, RAG, Cisco, Linux" />
+    <title>Precious Alkhafissa CAMARA | Product Engineer - Full Stack Python & IA</title>
+    <meta name="description" content="Portfolio de Precious Alkhafissa CAMARA, Product Engineer Full Stack Python & IA. Expert en conception web de bout en bout, architecture Flask, IA générative (RAG) et sécurité." />
+    <meta name="keywords" content="Product Engineer, Développeur Python, Flask, IA Générative, RAG, Llama 3, Portfolio, Dakar, Senelec, Sécurité Applicative" />
     <meta name="author" content="Precious Alkhafissa CAMARA" />
 
-    <meta property="og:title" content="Precious Alkhafissa CAMARA | Portfolio IT & Réseaux" />
-    <meta property="og:description" content="Découvrez mon expertise en infrastructure réseau et mes projets d'automatisation (Smart-Tender AI, XALAT...)." />
+    <meta property="og:title" content="Precious Alkhafissa CAMARA | Product Engineer Python & IA" />
+    <meta property="og:description" content="Découvrez mes produits web développés de bout en bout : XALAT, SOCO-CONNECT et des intégrations IA avancées (Smart-Tender AI)." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://alkhafissa.github.io/mon-portfolio/" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
     <style>
       :root {
@@ -52,9 +43,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        transition:
-          opacity 0.8s ease,
-          visibility 0.8s;
+        transition: opacity 0.8s ease, visibility 0.8s;
       }
       .rings-container {
         position: relative;
@@ -71,22 +60,14 @@
         border-top-color: var(--accent-green);
         animation: spin 1s linear infinite;
       }
-      .ring-1 {
-        width: 80px;
-        height: 80px;
-      }
+      .ring-1 { width: 80px; height: 80px; }
       .ring-2 {
-        width: 100px;
-        height: 100px;
+        width: 100px; height: 100px;
         border-top-color: var(--accent-gold);
         animation-duration: 1.5s;
         animation-direction: reverse;
       }
-      @keyframes spin {
-        100% {
-          transform: rotate(360deg);
-        }
-      }
+      @keyframes spin { 100% { transform: rotate(360deg); } }
 
       /* === ANIMATIONS & GLASS === */
       .glass-panel {
@@ -95,48 +76,30 @@
         -webkit-backdrop-filter: blur(20px);
         border: 1px solid var(--glass-border);
         border-radius: 20px;
-        /* Ajout d'une transition fluide de 0.3 seconde */
         transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
       }
-
-     /* L'effet de survol : soulèvement + lueur verte */
       .glass-panel:hover {
         transform: translateY(-8px);
         border-color: rgba(40, 167, 69, 0.8) !important;
-        /* On combine une ombre noire pour la 3D et une large lueur verte diffuse */
         box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 50px rgba(40, 167, 69, 0.4) !important;
-        z-index: 10; /* S'assure que la lueur passe par-dessus les autres éléments */
+        z-index: 10;
       }
-
       .fade-up {
         opacity: 0;
         transform: translateY(30px);
         animation: fadeUp 0.8s ease-out forwards;
       }
-      @keyframes fadeUp {
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      .delay-1 {
-        animation-delay: 0.2s;
-      }
-      .delay-2 {
-        animation-delay: 0.4s;
-      }
+      @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+      .delay-1 { animation-delay: 0.2s; }
+      .delay-2 { animation-delay: 0.4s; }
 
       /* === SECTIONS === */
-      .hero {
-        padding: 100px 0 60px;
-        position: relative;
-      }
+      .hero { padding: 100px 0 60px; position: relative; }
       .section-title-line {
         border-bottom: 3px solid var(--accent-gold);
         width: 60px;
         margin-bottom: 25px;
       }
-
 
       .badge-tech {
         background: rgba(40, 167, 69, 0.1);
@@ -149,10 +112,7 @@
         display: inline-block;
       }
 
-      .list-custom {
-        list-style: none;
-        padding-left: 0;
-      }
+      .list-custom { list-style: none; padding-left: 0; }
       .list-custom li {
         position: relative;
         padding-left: 25px;
@@ -172,45 +132,18 @@
         border-top: 1px solid var(--glass-border);
       }
 
-      /* === FOND RÉSEAU DE PARTICULES === */
-        #particles-js {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1; /* Reste bien derrière votre contenu */
-            pointer-events: none; /* Les clics passent au travers */
-        }
-        /* === RESPONSIVE MOBILE (SMARTPHONES & TABLETTES) === */
+      #particles-js {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        z-index: -1; pointer-events: none;
+      }
+      
       @media (max-width: 768px) {
-        /* 1. Réduire l'espace vide en haut de la page */
-        .hero {
-          padding: 60px 15px 30px;
-        }
-        
-        /* 2. Réduire la taille de votre nom pour éviter le débordement horizontal */
-        .hero h1.display-3 {
-          font-size: 2.2rem;
-        }
-        
-        /* 3. Réduire légèrement la taille du sous-titre et de la description */
-        .hero h2.h3 {
-          font-size: 1.2rem;
-        }
-        .lead {
-          font-size: 1rem;
-        }
-
-        /* 4. Réduire les marges intérieures énormes du panneau "Profil" sur mobile */
-        .glass-panel.p-5 {
-          padding: 1.5rem !important;
-        }
-        
-        /* 5. Ajuster l'espacement entre les projets */
-        .row.g-4 {
-          gap: 1rem;
-        }
+        .hero { padding: 60px 15px 30px; }
+        .hero h1.display-3 { font-size: 2.2rem; }
+        .hero h2.h3 { font-size: 1.2rem; }
+        .lead { font-size: 1rem; }
+        .glass-panel.p-5 { padding: 1.5rem !important; }
+        .row.g-4 { gap: 1rem; }
       }
     </style>
   </head>
@@ -223,220 +156,187 @@
         <div class="splash-ring ring-2"></div>
         <i class="fas fa-shield-halved fs-2 text-white position-absolute"></i>
       </div>
-      <h5 class="text-white mt-4 fw-bold tracking-widest">
-        CHARGEMENT DU PROFIL...
-      </h5>
+      <h5 class="text-white mt-4 fw-bold tracking-widest">CHARGEMENT DU PROFIL...</h5>
     </div>
 
+    <!-- NOUVELLE SECTION HERO -->
     <header class="hero text-center">
       <div class="container fade-up">
         <div class="mb-4">
-          <span class="badge bg-success px-3 py-2 rounded-pill mb-3"
-            >Disponible pour de nouveaux défis</span
-          >
+          <span class="badge bg-success px-3 py-2 rounded-pill mb-3">Disponible pour de nouveaux défis</span>
         </div>
-        <h1 class="display-3 fw-bold text-white mb-2">
-          Precious Alkhafissa CAMARA
-        </h1>
-        <h2 class="h3 text-warning mb-4">
-          ADMINISTRATEUR RÉSEAUX & SUPPORT IT
-        </h2>
+        <h1 class="display-3 fw-bold text-white mb-2">Precious Alkhafissa CAMARA</h1>
+        <h2 class="h3 text-warning mb-4">PRODUCT ENGINEER - FULL STACK PYTHON & IA</h2>
         <p class="lead mx-auto opacity-75" style="max-width: 800px">
-          Expert en infrastructures réseau et passionné par l'automatisation
-          intelligente. Je combine rigueur technique et innovation logicielle
-          pour optimiser les performances IT.
+          Je conçois et livre seul des produits web de bout en bout : de l'analyse du besoin métier jusqu'au déploiement sécurisé. Je combine développement full-stack Python/Flask, IA générative (RAG) et sens du produit.
         </p>
+        <div class="mt-4">
+          <!-- Modifiez le lien "href" avec le bon nom de votre fichier PDF -->
+          <a href="CV_Alkhafissa_Camara_ProductEngineer.pdf" target="_blank" class="btn btn-outline-success rounded-pill px-4 py-2 mx-2 fw-bold mb-2">
+            <i class="fas fa-file-pdf me-2"></i>Télécharger mon CV
+          </a>
+          <a href="https://github.com/AlkhafissA" target="_blank" class="btn btn-success rounded-pill px-4 py-2 mx-2 fw-bold mb-2">
+            <i class="fab fa-github me-2"></i>Voir mon GitHub
+          </a>
+        </div>
       </div>
     </header>
 
     <div class="container pb-5">
       <div class="row g-4">
+        
+        <!-- PROFIL -->
         <div class="col-lg-12 fade-up delay-1">
           <div class="glass-panel p-5">
-            <h3 class="text-white fw-bold">
-              <i class="fas fa-user-circle me-3 text-success"></i>Profil
-              Professionnel
-            </h3>
+            <h3 class="text-white fw-bold"><i class="fas fa-user-circle me-3 text-success"></i>Profil Professionnel</h3>
             <div class="section-title-line"></div>
             <p class="fs-5">
-              Étudiant en <strong>Multimédia Internet Telecom</strong>, j'ai
-              développé une double compétence unique en
-              <strong>Administration Système/Réseaux</strong> et en
-              <strong>Développement Web (Python)</strong>. Fort d'une expérience
-              concrète à la <strong>Senelec</strong> sur la migration de parcs
-              et le support utilisateur, je conçois également des solutions
-              d'automatisation avancées (Intranets et IA).
+              <strong>Product Engineer autodidacte</strong> et étudiant en <strong>Multimédia, Internet et Télécommunications (MIC)</strong>, j'ai une approche orientée produit et usage. Je ne me contente pas de coder : j'analyse le besoin, je conçois des architectures modulaires (Blueprints Flask) et j'intègre la sécurité dès la conception. J'exploite l'<strong>IA générative</strong> pour résoudre des problématiques métiers, tout en assurant un déploiement autonome et bien documenté.
             </p>
           </div>
         </div>
 
+        <!-- EXPERTISE : ENGINEERING & PRODUIT -->
         <div class="col-md-6 fade-up delay-2">
           <div class="glass-panel p-4 h-100">
-            <h4 class="text-white fw-bold mb-4">
-              <i class="fas fa-microchip me-2 text-warning"></i>Expertise
-              Technique
-            </h4>
-            <div class="mb-4">
-              <h6 class="text-success fw-bold">Réseaux & Systèmes</h6>
-              <p class="small opacity-75">
-                Configuration Cisco (VLANs), Windows Server, Linux (Bash),
-                Virtualisation.
-              </p>
-            </div>
-            <div class="mb-4">
-              <h6 class="text-success fw-bold">Développement & IA</h6>
-              <p class="small opacity-75">
-                Python (Flask, SQLAlchemy), Intégration LLM, RAG, ChromaDB,
-                HTML5/CSS3.
-              </p>
-            </div>
-            <div>
-              <h6 class="text-success fw-bold">Support & Maintenance</h6>
-              <p class="small opacity-75">
-                Helpdesk N1/N2, Ticketing, Maintenance Hardware, Formation
-                utilisateurs.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 fade-up delay-2">
-          <div class="glass-panel p-4 h-100">
-            <h4 class="text-white fw-bold mb-4">
-              <i class="fas fa-briefcase me-2 text-warning"></i>Expérience à la
-              Senelec
-            </h4>
+            <h4 class="text-white fw-bold mb-4"><i class="fas fa-microchip me-2 text-warning"></i>Engineering & Produit</h4>
             <ul class="list-custom small opacity-75">
-              <li>
-                <strong>Migration de Parc :</strong> Déploiement de 90 postes
-                vers un nouvel environnement sans interruption critique.
-              </li>
-              <li>
-                <strong>Administration :</strong> Surveillance du trafic et
-                maintenance des équipements d'interconnexion.
-              </li>
-              <li>
-                <strong>Support :</strong> Résolution d'incidents complexes pour
-                le personnel du siège.
-              </li>
-              <li>
-                <strong>Formation :</strong> Accompagnement de 20 collaborateurs
-                aux outils numériques.
-              </li>
+              <li><strong>Full-Stack Python :</strong> Architecture modulaire, Flask, SQLAlchemy, création d'API REST (78 endpoints réalisés).</li>
+              <li><strong>Sécurité & Déploiement :</strong> Docker, Linux, rôles (RBAC), validation stricte des fichiers, protections CSRF.</li>
+              <li><strong>Produit :</strong> Cadrage du besoin métier, interfaces orientées usage (HTML5, CSS3, Bootstrap), documentation technique.</li>
             </ul>
           </div>
         </div>
 
+        <!-- EXPERTISE : IA & DATA -->
+        <div class="col-md-6 fade-up delay-2">
+          <div class="glass-panel p-4 h-100">
+            <h4 class="text-white fw-bold mb-4"><i class="fas fa-brain me-2 text-warning"></i>Intelligence Artificielle</h4>
+            <ul class="list-custom small opacity-75">
+              <li><strong>IA Générative :</strong> Intégration de LLM récents (Llama 3.3) via l'API Groq.</li>
+              <li><strong>Pipeline RAG :</strong> Extraction documentaire depuis des PDF, vectorisation et requêtage avec ChromaDB.</li>
+              <li><strong>Prompt Engineering :</strong> Optimisation des contextes, limitation des hallucinations (température 0), citations de sources pour vérifiabilité.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- RÉALISATIONS PHARES (Grille 2x2 pour 4 projets) -->
         <div class="col-12 mt-5 fade-up">
             <h3 class="text-white fw-bold text-center mb-4">Réalisations Phares</h3>
             <div class="section-title-line mx-auto mb-5"></div>
                 
             <div class="row g-4">
-                <div class="col-lg-4 col-md-6">
+                
+                <!-- PROJET 1 : XALAT -->
+                <div class="col-lg-6 col-md-6">
                     <div class="card-project glass-panel p-4 d-flex flex-column h-100">
-                    <div class="text-success fs-1 mb-3"><i class="fas fa-brain"></i></div>
-                    <h5 class="text-white fw-bold">Smart-Tender AI</h5>
-                    <p class="small text-light opacity-75 mb-3">Intelligence Artificielle pour l'analyse automatisée des appels d'offres.</p>
-                    <ul class="small text-light opacity-75 ps-3 mb-4">
-                        <li><strong>Action :</strong> Implémentation d'un système RAG avec ChromaDB pour interroger des PDF complexes via IA.</li>
-                        <li><strong>Impact :</strong> Extraction intelligente de données et génération de rapports Excel structurés.</li>
-                    </ul>
-                    <div class="mt-auto">
-                        <span class="badge-tech">Python/Flask</span>
-                        <span class="badge-tech">IA (RAG/Groq)</span>
-                        <span class="badge-tech">Docker</span>
+                        <div class="text-warning fs-1 mb-3"><i class="fas fa-file-invoice"></i></div>
+                        <h5 class="text-white fw-bold">XALAT - Gestion des Marchés Publics</h5>
+                        <p class="small text-light opacity-75 mb-3">Plateforme conçue de bout en bout digitalisant les circuits de passation de marchés et l'agrément des entreprises.</p>
+                        <ul class="small text-light opacity-75 ps-3 mb-4">
+                            <li><strong>Action :</strong> Architecture de 16 modèles de données et 78 endpoints API avec refactorisation en Blueprints.</li>
+                            <li><strong>Sécurité :</strong> Audits (stockage privé, validation des téléversements, CSRF).</li>
+                        </ul>
+                        <div class="mt-auto d-flex justify-content-between align-items-end">
+                            <div>
+                                <span class="badge-tech">Python/Flask</span>
+                                <span class="badge-tech">SQLite</span>
+                                <span class="badge-tech">Sécurité</span>
+                            </div>
+                            <a href="https://github.com/AlkhafissA" target="_blank" class="text-success"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="col-lg-4 col-md-6">
-                <div class="card-project glass-panel p-4 d-flex flex-column h-100">
-                    <div class="text-warning fs-1 mb-3"><i class="fas fa-file-invoice"></i></div>
-                    <h5 class="text-white fw-bold">XALAT (MCAT)</h5>
-                    <p class="small text-light opacity-75 mb-3">Plateforme sécurisée pour la gestion administrative des marchés publics.</p>
-                    <ul class="small text-light opacity-75 ps-3 mb-4">
-                        <li><strong>Action :</strong> Architecture de 13 modèles DB, sécurité anti-bruteforce et gestion multi-rôles.</li>
-                        <li><strong>Impact :</strong> Automatisation de la génération de PDF officiels et traçabilité métier à 100%.</li>
-                    </ul>
-                    <div class="mt-auto">
-                        <span class="badge-tech">Python/Flask</span>
-                        <span class="badge-tech">PostgreSQL</span>
-                        <span class="badge-tech">Sécurité</span>
+                <!-- PROJET 2 : SOCO-CONNECT (Nouveau) -->
+                <div class="col-lg-6 col-md-6">
+                    <div class="card-project glass-panel p-4 d-flex flex-column h-100">
+                        <div class="text-info fs-1 mb-3"><i class="fas fa-hard-hat"></i></div>
+                        <h5 class="text-white fw-bold">SOCO-CONNECT - Portail Sous-traitants</h5>
+                        <p class="small text-light opacity-75 mb-3">Guichet unique Achats/HSE pour analyser les risques et valider les prestataires industriels (SOCOCIM Challenge).</p>
+                        <ul class="small text-light opacity-75 ps-3 mb-4">
+                            <li><strong>Action :</strong> Création d'un double circuit de validation avec détection de documents falsifiés (signature binaire).</li>
+                            <li><strong>Sécurité :</strong> Registre d'audit, contrôle d'accès RBAC et protection anti-intrusion (honeypot, blocage IP).</li>
+                        </ul>
+                        <div class="mt-auto d-flex justify-content-between align-items-end">
+                            <div>
+                                <span class="badge-tech">Python/Flask</span>
+                                <span class="badge-tech">RBAC</span>
+                                <span class="badge-tech">Anti-Intrusion</span>
+                            </div>
+                            <a href="https://github.com/AlkhafissA" target="_blank" class="text-success"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="col-lg-4 col-md-6">
-                <div class="card-project glass-panel p-4 d-flex flex-column h-100">
-                    <div class="text-success fs-1 mb-3"><i class="fas fa-shopping-basket"></i></div>
-                    <h5 class="text-white fw-bold">GUETTE-GUI</h5>
-                    <p class="small text-light opacity-75 mb-3">Marketplace Agricole B2C spécialisée dans la vente de bétail au Sénégal.</p>
-                    <ul class="small text-light opacity-75 ps-3 mb-4">
-                        <li><strong>Action :</strong> Développement du front-end avec un panier dynamique géré via LocalStorage.</li>
-                        <li><strong>Fonction :</strong> Gestion du catalogue produits et tunnel de commande complet.</li>
-                    </ul>
-                    <div class="mt-auto">
-                        <span class="badge-tech">PHP/MySQL</span>
-                        <span class="badge-tech">JavaScript</span>
-                        <span class="badge-tech">Bootstrap</span>
-                    </div>
-                 </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mx-auto">
-                <div class="card-project glass-panel p-4 d-flex flex-column h-100">
-                    <div class="text-info fs-1 mb-3"><i class="fas fa-graduation-cap"></i></div>
-                    <h5 class="text-white fw-bold">Licence MIC</h5>
-                    <p class="small text-light opacity-75 mb-3">Multimédia Internet Telecom à l'Université Numérique Cheikh Hamidou Kane.</p>
-                    <ul class="small text-light opacity-75 ps-3 mb-4">
-                        <li><strong>Focus :</strong> Administration réseaux, télécommunications et médias numériques.</li>
-                        <li><strong>Compétence :</strong> Maîtrise des protocoles de communication et infrastructures.</li>
-                    </ul>
-                    <div class="mt-auto">
-                        <span class="badge-tech">UNCHK</span>
-                        <span class="badge-tech">Telecoms</span>
-                        <span class="badge-tech">Réseaux</span>
+                <!-- PROJET 3 : SMART-TENDER AI -->
+                <div class="col-lg-6 col-md-6">
+                    <div class="card-project glass-panel p-4 d-flex flex-column h-100">
+                        <div class="text-success fs-1 mb-3"><i class="fas fa-brain"></i></div>
+                        <h5 class="text-white fw-bold">SMART TENDER AI</h5>
+                        <p class="small text-light opacity-75 mb-3">Assistant IA d'analyse d'appels d'offres répondant aux questions avec citation exacte des pages sources.</p>
+                        <ul class="small text-light opacity-75 ps-3 mb-4">
+                            <li><strong>Action :</strong> Intégration d'un pipeline RAG (ChromaDB, Llama 3.3 via Groq) optimisé en mémoire.</li>
+                            <li><strong>Impact :</strong> Extraction automatique des données clés et génération de rapports Excel de synthèse.</li>
+                        </ul>
+                        <div class="mt-auto d-flex justify-content-between align-items-end">
+                            <div>
+                                <span class="badge-tech">Llama 3.3 / Groq</span>
+                                <span class="badge-tech">ChromaDB</span>
+                                <span class="badge-tech">Docker</span>
+                            </div>
+                            <a href="https://github.com/AlkhafissA" target="_blank" class="text-success"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
                     </div>
                 </div>
+
+                <!-- PROJET 4 : GUÉTE-GUI -->
+                <div class="col-lg-6 col-md-6">
+                    <div class="card-project glass-panel p-4 d-flex flex-column h-100">
+                        <div class="text-success fs-1 mb-3"><i class="fas fa-shopping-basket"></i></div>
+                        <h5 class="text-white fw-bold">GUÉTE-GUI - Marketplace Agricole</h5>
+                        <p class="small text-light opacity-75 mb-3">Application e-commerce multi-vendeurs pensée comme un produit B2C réutilisable.</p>
+                        <ul class="small text-light opacity-75 ps-3 mb-4">
+                            <li><strong>Action :</strong> Conception Full Stack incluant l'authentification, les comptes vendeurs et un back-office administrateur.</li>
+                            <li><strong>Fonction :</strong> Base produit modulaire adaptable à différents secteurs de vente.</li>
+                        </ul>
+                        <div class="mt-auto d-flex justify-content-between align-items-end">
+                            <div>
+                                <span class="badge-tech">Python/Flask</span>
+                                <span class="badge-tech">Architecture Web</span>
+                                <span class="badge-tech">Bootstrap</span>
+                            </div>
+                            <a href="https://github.com/AlkhafissA" target="_blank" class="text-success"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>    
+
     <footer class="py-5 text-center mt-5">
       <div class="container">
         <h4 class="text-white fw-bold mb-4">Prêt à collaborer ?</h4>
         <div class="d-flex justify-content-center gap-4 mb-4">
-          <a href="mailto:Alkhafissa98@gmail.com" class="text-success fs-3"
-            ><i class="fas fa-envelope"></i
-          ></a>
-          <a href="tel:+221768135432" class="text-success fs-3"
-            ><i class="fas fa-phone"></i
-          ></a>
-          <a href="https://github.com/AlkhafissA" class="text-white fs-3"
-            ><i class="fab fa-github"></i
-          ></a>
+          <a href="mailto:Alkhafissa98@gmail.com" class="text-success fs-3"><i class="fas fa-envelope"></i></a>
+          <a href="tel:+221768135432" class="text-success fs-3"><i class="fas fa-phone"></i></a>
+          <a href="https://github.com/AlkhafissA" target="_blank" class="text-white fs-3"><i class="fab fa-github"></i></a>
         </div>
-        <p class="text-muted small">
-          &copy; 2026 Precious Alkhafissa CAMARA - Dakar, Sénégal
-        </p>
+        <p class="text-muted small">&copy; 2026 Precious Alkhafissa CAMARA - Dakar, Sénégal</p>
       </div>
     </footer>
 
     <script>
-      // Disparition du Splash Screen de manière sécurisée
       document.addEventListener("DOMContentLoaded", () => {
-        // On lance le compte à rebours de 1.2 seconde dès la lecture de la page
         setTimeout(() => {
           const splash = document.getElementById("splash-screen");
           if (splash) {
-            splash.style.opacity = "0"; // Fondu transparent
-            setTimeout(() => {
-              splash.style.visibility = "hidden"; // On le cache totalement
-            }, 800);
+            splash.style.opacity = "0";
+            setTimeout(() => { splash.style.visibility = "hidden"; }, 800);
           }
         }, 1200);
       });
-
-      // Sécurité supplémentaire : forcer la disparition après 4 secondes au cas où
       setTimeout(() => {
         const splash = document.getElementById("splash-screen");
         if (splash && splash.style.visibility !== "hidden") {
@@ -445,75 +345,32 @@
         }
       }, 4000);
     </script>
-
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    
     <script>
         particlesJS("particles-js", {
             "particles": {
-                "number": {
-                    "value": 35, /* RÉDUIT : Moins de points flottants */
-                    "density": { "enable": true, "value_area": 800 }
-                },
-                "color": {
-                    "value": ["#28a745", "#ffc107", "#ffffff"]
-                },
-                "shape": {
-                    "type": "circle",
-                },
-                "opacity": {
-                    "value": 0.5, /* Points légèrement plus discrets */
-                    "random": false
-                },
-                "size": {
-                    "value": 3,
-                    "random": true
-                },
-                "line_linked": {
-                    "enable": true,
-                    "distance": 120, /* RÉDUIT : Crée moins de lignes de connexion spontanées */
-                    "color": "#28a745",
-                    "opacity": 0.15, /* RÉDUIT : Lignes beaucoup plus discrètes au repos */
-                    "width": 1
-                },
-                "move": {
-                    "enable": true,
-                    "speed": 1.2, /* Ralenti pour un effet plus apaisant */
-                    "direction": "none",
-                    "random": true,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false
-                }
+                "number": { "value": 35, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": ["#28a745", "#ffc107", "#ffffff"] },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5, "random": false },
+                "size": { "value": 3, "random": true },
+                "line_linked": { "enable": true, "distance": 120, "color": "#28a745", "opacity": 0.15, "width": 1 },
+                "move": { "enable": true, "speed": 1.2, "direction": "none", "random": true, "straight": false, "out_mode": "out", "bounce": false }
             },
             "interactivity": {
                 "detect_on": "window",
                 "events": {
-                    "onhover": {
-                        "enable": true,
-                        "mode": "grab" 
-                    },
-                    "onclick": {
-                        "enable": true,
-                        "mode": "push" 
-                    },
+                    "onhover": { "enable": true, "mode": "grab" },
+                    "onclick": { "enable": true, "mode": "push" },
                     "resize": true
                 },
                 "modes": {
-                    "grab": {
-                        "distance": 200, /* Zone d'attraction de la souris légèrement réduite */
-                        "line_linked": {
-                            "opacity": 0.6 /* Les lignes vers la souris restent bien lumineuses ! */
-                        }
-                    },
-                    "push": {
-                        "particles_nb": 2
-                    }
+                    "grab": { "distance": 200, "line_linked": { "opacity": 0.6 } },
+                    "push": { "particles_nb": 2 }
                 }
             },
             "retina_detect": true
         });
     </script>
-
   </body>
 </html>
