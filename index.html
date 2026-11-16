@@ -386,5 +386,46 @@
             "retina_detect": true
         });
     </script>
+    <!-- SCRIPT DE TRACKING CUSTOM -->
+    <script>
+      // Remplacez cette URL par celle de votre API une fois déployée (ex: Render, PythonAnywhere)
+      // Pour vos tests en local : "http://127.0.0.1:5000/api/track"
+      const API_URL = "VOTRE_URL_BACKEND_ICI/api/track";
+    
+      function sendTracking(actionName) {
+        fetch(API_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            action: actionName,
+            userAgent: navigator.userAgent
+          })
+        }).catch(err => console.warn("Tracking silencieusement bloqué par un AdBlocker"));
+      }
+    
+      // 1. Enregistrer une visite de la page dès le chargement
+      window.addEventListener("load", () => {
+        sendTracking("pageview");
+      });
+    
+      // 2. Enregistrer un clic précis (ex: Téléchargement du CV)
+      document.addEventListener("DOMContentLoaded", () => {
+        const cvBtn = document.querySelector('a[href="assets/CV Alkhafissa.pdf"]');
+        if (cvBtn) {
+          cvBtn.addEventListener("click", () => {
+            sendTracking("cv_download");
+          });
+        }
+        
+        // 3. Optionnel : Enregistrer les clics sur les projets (GitHub)
+        const githubLinks = document.querySelectorAll('a[href="https://github.com/AlkhafissA"]');
+        githubLinks.forEach(link => {
+            link.addEventListener("click", () => {
+                sendTracking("github_click");
+            });
+        });
+      });
+    </script>  
+      
   </body>
 </html>
