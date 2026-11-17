@@ -395,12 +395,13 @@
       function sendTracking(actionName) {
         fetch(API_URL, {
           method: "POST",
+          keepalive: true, // <-- NOUVEAU : Force l'envoi même pendant un téléchargement
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             action: actionName,
             userAgent: navigator.userAgent
           })
-        }).catch(err => console.warn("Tracking silencieusement bloqué par un AdBlocker"));
+        }).catch(err => console.warn("Tracking silencieusement bloqué"));
       }
     
       // 1. Enregistrer une visite de la page dès le chargement
@@ -410,12 +411,13 @@
     
       // 2. Enregistrer un clic précis (ex: Téléchargement du CV)
       document.addEventListener("DOMContentLoaded", () => {
-        const cvBtn = document.querySelector('a[href="assets/CV Alkhafissa.pdf"]');
-        if (cvBtn) {
-          cvBtn.addEventListener("click", () => {
-            sendTracking("cv_download");
-          });
-        }
+       // On cible par l'ID de manière 100% fiable
+       const cvBtn = document.getElementById("btn-cv");
+       if (cvBtn) {
+         cvBtn.addEventListener("click", () => {
+           sendTracking("cv_download");
+         });
+       }
         
         // 3. Optionnel : Enregistrer les clics sur les projets (GitHub)
         const githubLinks = document.querySelectorAll('a[href="https://github.com/AlkhafissA"]');
