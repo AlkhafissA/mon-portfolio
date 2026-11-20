@@ -134,8 +134,12 @@
       }
 
       footer {
-        background: #020603;
+        background: var(--glass-bg);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
         border-top: 1px solid var(--glass-border);
+        position: relative;
+        z-index: 1;
       }
 
       #particles-js {
