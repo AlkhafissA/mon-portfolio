@@ -394,7 +394,7 @@
       function sendTracking(actionName) {
         fetch(API_URL, {
           method: "POST",
-          keepalive: true, // Force l'envoi même si l'utilisateur quitte la page
+          keepalive: true,
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             action: actionName,
@@ -408,50 +408,77 @@
         sendTracking("pageview");
       });
     
-      // 2. Clic CV
+      // 2. Clics sur les boutons principaux du Header (CV et GitHub)
       document.addEventListener("DOMContentLoaded", () => {
-       const cvBtn = document.getElementById("btn-cv");
-       if (cvBtn) {
-         cvBtn.addEventListener("click", () => sendTracking("cv_download"));
-       }
-      });
+        const cvBtn = document.getElementById("btn-cv");
+        if (cvBtn) {
+          cvBtn.addEventListener("click", () => sendTracking("cv_download"));
+        }
     
-      // 3. Temps passé total sur le site (Envoyé quand il ferme ou réduit l'onglet)
-      const sessionStartTime = Date.now();
-      window.addEventListener("visibilitychange", () => {
-        if (document.visibilityState === 'hidden') {
-            const timeSpentSec = Math.round((Date.now() - sessionStartTime) / 1000);
-            if (timeSpentSec > 2) { // Ignore ceux qui ferment la page instantanément
-                sendTracking("tps_" + timeSpentSec + "s");
-            }
+        const githubBtn = document.getElementById("btn-github");
+        if (githubBtn) {
+          githubBtn.addEventListener("click", () => sendTracking("click_github"));
         }
       });
     
-      // 4. Tracking de lecture des projets (Détecte s'il s'arrête +3s sur une carte)
+      // 3. Temps passé total sur le site
+      const sessionStartTime = Date.now();
+      window.addEventListener("visibilitychange", () => {
+        if (document.visibilityState === 'hidden') {
+          const timeSpentSec = Math.round((Date.now() - sessionStartTime) / 1000);
+          if (timeSpentSec > 2) {
+            sendTracking("tps_" + timeSpentSec + "s");
+          }
+        }
+      });
+    
+      // 4. Tracking avancé des 4 cartes projets (Visibilité 3s + Survol souris 3s + Clic lien)
       document.addEventListener("DOMContentLoaded", () => {
         const projectCards = document.querySelectorAll('.card-project');
-        
+    
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
-              // Le projet est visible : on récupère son nom (ex: "XALAT")
               const titleElement = entry.target.querySelector('h5');
               const projectName = titleElement ? titleElement.innerText.split(' -')[0].trim() : "projet";
-              
-              // On démarre un chrono de 3 secondes
+    
               entry.target.viewTimer = setTimeout(() => {
                 sendTracking("lu_" + projectName);
-                observer.unobserve(entry.target); // On ne le traque qu'une seule fois
+                observer.unobserve(entry.target);
               }, 3000);
-              
             } else {
-              // Le visiteur a défilé avant les 3 secondes : on annule le chrono
               clearTimeout(entry.target.viewTimer);
             }
           });
-        }, { threshold: 0.75 }); // 75% de la carte du projet doit être visible à l'écran
+        }, { threshold: 0.75 });
     
-        projectCards.forEach(card => observer.observe(card));
+        projectCards.forEach(card => {
+          observer.observe(card);
+    
+          const titleElement = card.querySelector('h5');
+          const projectName = titleElement ? titleElement.innerText.split(' -')[0].trim() : "projet";
+    
+          // Survol de la souris (+3s sur ordinateur)
+          card.addEventListener("mouseenter", () => {
+            if (card.dataset.hovered) return;
+            card.hoverTimer = setTimeout(() => {
+              sendTracking("hover_" + projectName);
+              card.dataset.hovered = "true";
+            }, 3000);
+          });
+    
+          card.addEventListener("mouseleave", () => {
+            clearTimeout(card.hoverTimer);
+          });
+    
+          // Clic sur le lien de la carte (ex: click_XALAT, click_GUÉTE-GUI...)
+          const projectLink = card.querySelector('a');
+          if (projectLink) {
+            projectLink.addEventListener("click", () => {
+              sendTracking("click_" + projectName);
+            });
+          }
+        });
       });
     </script>
       
